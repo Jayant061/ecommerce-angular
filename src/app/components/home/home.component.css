@@ -1,0 +1,35 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5%;
+    padding: 20px 0;
+    background-color: rgba(255, 0, 0, 0.514);
+    .img{
+        width: 30%;
+        img{
+            width:100%
+        }
+    }
+    .text{
+        padding-left:5%;
+        width: 50%;
+        max-width: 400px;
+        font-size: 2rem;
+        text-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+         button{
+            margin-left: 0;
+         }
+    }
+}
+section.homecard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    padding:  10px 5%;
+    gap: 10px;
+}

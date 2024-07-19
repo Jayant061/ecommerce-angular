@@ -1,0 +1,28 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--bgc);
+    padding: 20px 5%;
+    .cards-title{
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+    header{
+        flex: 1 1 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    }
+    section.explore{
+        margin-top: 20px;
+        a{
+            text-decoration: none;
+            color: white;
+            &:hover{
+                color: lightgray;
+            }
+        }
+    }
+}

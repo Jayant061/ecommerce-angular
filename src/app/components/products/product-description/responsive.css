@@ -1,0 +1,29 @@
+@media screen and (max-width:770px){
+    :host{
+        header.product-desc{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+    
+            section.img,section.details{
+                width: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width:550px){
+    :host{
+        header.product-desc{
+            section.details{
+                .price{
+                    gap: 10%;
+                }
+                .btns{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}

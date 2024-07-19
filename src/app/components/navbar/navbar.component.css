@@ -1,0 +1,72 @@
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625rem 5%;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0px 5px 5px rgba(44, 44, 44, 0.37);
+    z-index: 20;
+    .logo{
+        cursor: pointer;
+    }
+    ul{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 30px;
+        font-size: 1rem;
+        flex: 1;
+
+        li{
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            position: relative;
+            img{
+                width: 2rem;
+                margin: auto 0;
+            }
+            #cartCount{
+                position: absolute;
+                color: var(--bgc);
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
+        }
+        #inputLi{
+            /* background-color: gray; */
+            width: 50%;
+            min-width: 350px;
+            overflow: hidden;
+            border-radius: 5px;
+            padding-left: 5px;
+            /* box-shadow: 0px 0px 0.25rem 0.25rem gray; */
+            border: 1px solid white;
+            /* rgba(128, 128, 128, 0.432); */
+            img{
+                width:1.5rem
+            }
+            input{
+                flex: 1;
+                background-color: transparent;
+                outline: none;
+                border: none;
+                font-size: 1rem;
+                line-height: 2rem;
+                color: white;
+                padding: 0 5px;
+
+                &::placeholder{
+                    color: white;
+                }
+            }
+        }
+    }
+}

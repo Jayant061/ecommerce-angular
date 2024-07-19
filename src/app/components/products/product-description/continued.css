@@ -1,0 +1,65 @@
+
+:host{
+    header.product-desc{
+    section.details{
+.price{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    span.actual{
+        position: relative;
+        &::before{
+            content:" ";
+            width: 120%;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: -10%;
+            background-color: lightgray;
+            transform: translateY(-50%);
+        }
+        &::after{
+            content:"75% off";
+            position: absolute;
+            left: 120%;
+            width: 100%;
+            min-width: max-content;
+            height:100%;
+            color: lightgray;
+        }
+    }
+}
+.btns{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-between;
+    button{
+        margin: 1rem;
+    }
+}
+.description{
+    h4{
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 30px 0;
+    }
+    span{
+        font-size: 1.2rem;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+    p{
+        font-size: 1rem;
+        line-height: 1.2rem;
+        padding-top: 20px;
+    }
+}
+    }
+}
+}

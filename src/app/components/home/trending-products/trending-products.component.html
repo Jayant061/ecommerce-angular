@@ -1,0 +1,19 @@
+<section class="title">
+    <p app-title>Trending Poducts</p>
+</section>
+<section class="trending-products">
+    @if(trendingProducts().length){
+   @for(product of trendingProducts(); track product.id){
+    <section class="trending-product" (click)="ShowProduct(product.id)">
+        <img [src]="product.image" alt="product.title">
+        <p>{{product.title}}</p>
+        <span>{{product.price | currency:"USD"}}</span>
+        <button app-button (click)="onClick($event,product)"><span>Buy Now</span></button>
+    </section>
+   }
+}@else {
+    <section class="loading-spinner">
+        <app-loading-spinner/>
+    </section>
+}
+</section>

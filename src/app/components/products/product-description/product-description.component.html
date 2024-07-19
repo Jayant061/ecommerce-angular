@@ -1,0 +1,47 @@
+@if(!isLoading()){
+<header class='product-desc'>
+    <section class="img">
+        <img [src]="product().image" alt="">
+    </section>
+    <section class="details">
+        <div class="head">
+            <h2>{{product().title}}</h2>
+            <p><span id="rating">{{product().rating.rate}} <img [src]="getStarIcon" alt=""></span>
+                <span>{{product().rating.count}} Ratings</span></p>
+        </div>
+        <hr>
+        <div class="price">
+            <span class="discounted">{{product().price |currency:"USD"}}</span>
+            <span class="actual">{{price() |currency:"USD"}}</span>
+        </div>
+        <div class="btns">
+            @if(isAddedToCart()){ 
+                <button app-button (click)="handleGoToCart()">Go to Cart</button>
+            }
+            @else {
+                <button app-button (click)="handleAddToCart()">Add to Cart</button>
+            }
+            <button app-button (click)="handleBuyNow()">Buy Now</button>
+        </div>
+        <hr>
+        <div class="description">
+            <h4>Product Details</h4>
+            <span>Descriptions:</span>
+           
+            <p>{{product().description}}</p>
+        </div>
+    </section>
+</header>
+@if(similarProducts().length){
+<app-products [allProducts]="similarProducts()">
+    <p app-title>Similar Products</p>
+</app-products>
+}@else {
+    <section><app-loading-spinner/></section>
+}
+}@else{
+    <section>
+        <app-loading-spinner/>
+    </section>
+}
+

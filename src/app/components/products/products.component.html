@@ -1,0 +1,12 @@
+<header>
+    <ng-content/>
+</header>
+@if(allProducts.length){
+<section class="products">
+    @for(product of allProducts; track product.id){
+        <app-product [product] = product/>
+    }
+</section>
+}@else{
+    <p style="margin-bottom: 40px;">No relevent product Found !</p>
+}

@@ -1,0 +1,10 @@
+@if(!isLoading()){
+    <app-products [allProducts]="getAllProducts()">
+        <p app-title>All Products</p>
+    </app-products>
+}
+@else {
+    <section>
+        <app-loading-spinner/>
+    </section>
+}

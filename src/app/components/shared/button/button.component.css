@@ -1,0 +1,21 @@
+:host {
+    width: 80%;
+    margin:1rem 10%;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    overflow: hidden;
+    button{
+        width: 100%;
+        padding: 10px 0;
+        color: var(--bgc);
+        font-weight: 600;
+        font-size: 1rem;
+        border: none;
+        transition: 0.2s ease;
+        cursor: pointer;
+        &:hover{
+            background-color: lightgray;
+        }
+    }
+}

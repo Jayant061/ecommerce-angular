@@ -1,0 +1,23 @@
+<tr>
+    <td class="product-info">
+        <img [src]="item.product.image" alt="">
+      <span>{{item.product.title}}</span
+      >
+    </td>
+    <td class="price">{{item.product.price |currency:"USD"}}</td>
+    <td class="inc-dec-btn">
+      <img class="cart-icon" src="../../../assets/add.png" alt="add" (click)="handleIncrement()" />
+      <span>{{ item.qty }}</span>
+      <img
+        class="cart-icon"
+        src="../../../assets/subtract.png"
+        alt="subtract"
+        (click)="handleDecrement()"
+      />
+    </td>
+    <td class="subtotal">
+      <span>{{ subtotal |currency:"USD" }}</span>
+      <img class="cart-icon" src="../../../assets/delete.png" alt=""
+      (click)="handleDelete()" />
+    </td>
+  </tr>

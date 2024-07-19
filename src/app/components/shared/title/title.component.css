@@ -1,0 +1,38 @@
+:host p{
+    font-size: 2rem;
+    margin: 20px 0;
+    font-weight: 400;
+    position: relative;
+    &::before, &::after{
+        position: absolute;
+        content: " ";
+        width: 100px;
+        height: 2px;
+        background-color: white;
+        top: 50%;
+    }
+    &::before{
+        right: 100%;
+    }
+
+}
+@media screen and (max-width:480px){
+    :host p{
+        font-size: 2rem;
+        margin: 20px 0;
+        font-weight: 400;
+        position: relative;
+        &::before, &::after{
+            position: absolute;
+            content: " ";
+            width: 15%;
+            height: 2px;
+            background-color: white;
+            top: 50%;
+        }
+        &::before{
+            right: 100%;
+        }
+    
+    }
+}

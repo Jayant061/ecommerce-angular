@@ -1,0 +1,12 @@
+<header>
+    <div class="logo" (click)="onClick()">Ecommerce</div>
+    <ul>
+        <li id="inputLi">
+            <img [src]="searchIcon" alt="search icon">
+            <input type="text" name="query" placeholder="Search products by name, category ..."
+            [(ngModel)]="query" autocomplete="off">
+        </li>
+        <li (click)="handleNavigateToCart()"><img [src]="getCartIcon" alt="cart-icon"><span id="cartCount">{{cartCount()&& cartCount()}}</span></li>
+        <li><img [src]="getUserIcon" alt=""></li>
+    </ul>
+</header>

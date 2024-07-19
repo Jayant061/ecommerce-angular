@@ -1,0 +1,32 @@
+<nav>
+  <span>Shop for $500 and more and get 10% discount on your order</span>
+</nav>
+@if(cartItems().length){
+<section>
+  <span>Shopping cart</span>
+  <table>
+    <thead>
+      <th>Product</th>
+      <th>price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </thead>
+    <tbody>
+      @for(item of cartItems();track item.product.id){
+        
+        <app-cart-item [item]="item" />
+      }
+    </tbody>
+    <section class="order-details">
+        <app-delivery-availability/>
+        <app-order-summary/>
+    </section>
+  </table>
+</section>
+}
+@else{
+ <section class="fallback">
+  <span>Item that will be added to cart will show here</span>
+  <button app-button (click)="handleNavigate()">Continue Shopping</button>
+ </section>
+}

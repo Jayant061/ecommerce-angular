@@ -1,0 +1,8 @@
+<section class="image">
+    <img [src]="product().image" alt="">
+</section>
+<section class="text-content">
+    <p>{{product().title }}</p>
+    <span>{{product().price|currency:"USD"}}</span>
+</section>
+<img [src]="getImagePath" alt="cart image" class="cartbtn" (click)="handleCart($event)">

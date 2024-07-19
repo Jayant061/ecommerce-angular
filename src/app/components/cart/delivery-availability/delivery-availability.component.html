@@ -1,0 +1,13 @@
+<div class="check-availability">
+    <p>Delivery availability</p>
+    <form class="input" (submit)="handleSubmit()" autocomplete="off">
+        <img src="../../../assets/location.png" alt="" class="cart-icon">
+        <input type="text" name="pin" [(ngModel)] = "pincode" >
+        <button>check</button>
+    </form>
+    <p class="extra-info">
+        <span><img [src]="tickIcon" alt="tick"> Free Delivery</span>
+        <span><img [src]="tickIcon" alt="tick">Cash on delivery</span>
+        <span><img [src]="tickIcon" alt="tick">expected delivery within 5 working days</span>
+    </p>
+</div>

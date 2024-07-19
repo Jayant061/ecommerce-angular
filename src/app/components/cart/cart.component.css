@@ -1,0 +1,101 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 5%;
+    nav{
+        background-color: var(--bgc);
+        color: white;
+        width: 100%;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 500;
+        padding: 1rem ;
+        margin-bottom: 30px;
+    }
+    section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        span{
+            font-weight: 400;
+            font-size: 1.7rem;
+            text-decoration: underline;
+        }
+        table{
+            background-color: var(--bgc);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            overflow: hidden;
+            span{
+                text-decoration: none;
+                font-size: 1rem;
+            }
+            .cart-icon{
+                width: 1.5rem;
+                padding: 2px;
+                border: 1px solid lightgray;
+            }
+            thead{
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(4,1fr);
+                place-items: center;
+                padding: 10px 0;
+                border-bottom: 1px solid lightgray;
+            }
+            tbody{
+                width:100%;
+            }
+            
+            section.order-details{
+                width: 100%;  
+                padding: 30px 5%;            
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+        }
+    }
+    section.fallback{
+        background-color: var(--bgc); 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        text-align: center;
+        button{
+            margin:0;
+        }
+    }
+}
+@media screen and (max-width:880px){
+    :host{
+        section{
+            table{
+                section.order-details{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:600px){
+    :host{
+        section{
+            table{
+                thead{
+                    display: none;
+                }
+            }
+        }
+    }
+}

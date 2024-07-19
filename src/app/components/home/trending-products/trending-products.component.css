@@ -1,0 +1,47 @@
+:host{
+    padding: 10px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title{
+        text-align: center;
+        font-size: 2rem;
+        padding: 30px 20px;
+    }
+    section.trending-products{
+        width: 100%;
+        padding: 10px;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        background-color: var(--bgc);
+        section.trending-product{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            overflow: hidden;
+            img{
+                width: 100%;
+                aspect-ratio: 0.8;
+                background-color: white;
+                object-fit: contain;
+                margin-bottom: 10px;
+            }
+            p{  
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            p,span{
+                padding: 0 10px;
+            }
+        }
+        section.loading-spinner{
+            grid-column: 1 / -1;
+        }
+    }
+}

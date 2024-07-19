@@ -1,0 +1,27 @@
+@media screen and (max-width:600px){
+    section.homecard {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        justify-content: center;
+        padding:  10px 5%;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width:650px){
+    header{
+        flex-direction: column-reverse;
+        .img{
+           width: 100%;
+            img{
+                width:100%
+            }
+        }
+        .text{
+            width: 100%;
+             button{
+                margin-left: 0;
+             }
+        }
+    }
+}

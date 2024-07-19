@@ -1,0 +1,17 @@
+<header>
+  <div class="text">
+    <span> Grab upto 50% of on all laptop bags </span>
+    <button (click)="onClick()" app-button>Buy Now &#8594;</button>
+  </div>
+  <div class="img">
+    <img src="../../../assets/laptopBag.png" alt="" />
+  </div>
+</header>
+<section class="homecard">
+  @for(data of homepageData; track data.id){
+    <app-cards [cardsData] = "data.contents"/>
+  }
+</section>
+<section>
+  <app-trending-products/>
+</section>

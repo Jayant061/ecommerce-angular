@@ -1,0 +1,25 @@
+<section>
+    <span class="order-heading">Order Summary ({{getTotalQty()}}{{getTotalQty()===1?" item":" items"}})</span>
+    <div class="subtotal">
+        <p>
+            <span class="heading">Subtotal</span>
+            <span class="content">{{totalSubtotal() | currency:"USD"}}</span>
+        </p>
+        <p>
+            <span class="heading">total Discount</span>
+            <span class="content">{{discount() | currency:"USD"}}</span>
+        </p>
+        <p>
+            <span class="heading">Standard shipping</span>
+            <span class="content">{{deliveryCharge() | currency:"USD"}}</span>
+        </p>
+        <p class="order-total">
+            <span class="heading">Order total</span>
+            <span class="content">{{totalPrice() | currency:"USD"}}</span>
+        </p>
+    </div>
+    <div class="btns">
+        <button app-button>Continue Shopping</button>
+        <button app-button>Checkout</button>
+    </div>
+</section>

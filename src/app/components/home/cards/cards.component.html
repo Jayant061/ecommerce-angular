@@ -1,0 +1,12 @@
+    <section class="cards-title">
+        <p>{{cardsData.title}}</p>
+    </section>
+    <header>
+    @for(card of cardsData.items; track card.id){
+        <app-card [cardData] = "card"/>
+    }
+</header>
+<section class="explore">
+    <a routerLink="/all-products">Explore more...</a>
+</section>
+
