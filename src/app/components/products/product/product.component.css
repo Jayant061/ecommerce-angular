@@ -59,11 +59,11 @@
 }
 @media screen and (max-width:820px){
   :host{
-    width:30%
+    width:32%
   }
 }
 @media screen and (max-width:480px){
   :host{
-    width:40%
+    width:49%
   }
 }
