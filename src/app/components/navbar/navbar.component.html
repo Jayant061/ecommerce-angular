@@ -7,6 +7,6 @@
             [(ngModel)]="query" autocomplete="off">
         </li>
         <li (click)="handleNavigateToCart()"><img [src]="getCartIcon" alt="cart-icon"><span id="cartCount">{{cartCount()&& cartCount()}}</span></li>
-        <li><img [src]="getUserIcon" alt=""></li>
+        <li (click)="handleNavigateToUser()"><img [src]="getUserIcon" alt=""></li>
     </ul>
 </header>

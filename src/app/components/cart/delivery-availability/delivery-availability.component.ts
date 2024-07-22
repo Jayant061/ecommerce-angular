@@ -13,12 +13,24 @@ export class DeliveryAvailabilityComponent {
   private cartService = inject(CartService);
 pincode = "";
 error = ""
+extraInfoVisible:boolean = false;
+isFreeDelivery:boolean = false;
+handleInputChange(){
+  this.error = "";
+  this.isFreeDelivery = false;
+  this.extraInfoVisible = false
+}
 handleSubmit(){
-  if(this.pincode.length===6 && this.pincode>="100000"){
-    this.cartService.setDeliveryCharge(this.pincode)
+  if(this.pincode.length === 6 && this.pincode>="100000"){
+    const res = this.cartService.setDeliveryCharge(this.pincode);
+    this.extraInfoVisible = true;
+    if(res===0){
+      this.isFreeDelivery = true;
+    }
   }
   else{
     this.error = "Please Enter a valid pincode";
+    this.extraInfoVisible = true
   }
 }
 get tickIcon(){

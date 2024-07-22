@@ -22,7 +22,6 @@ constructor(){
     this.query();
     const time = setTimeout(()=>{
       this.productService.setQuery(this.query());
-      console.log(this.query());
       this.query().length && this.router.navigate(["all-products"])
     },1000);
     onCleanup(()=>clearTimeout(time));
@@ -39,6 +38,9 @@ constructor(){
  }
  handleNavigateToCart(){
   this.router.navigate(["/viewcart"]);
+ }
+ handleNavigateToUser(){
+  this.router.navigate(['auth/user'])
  }
  onClick(){
   this.router.navigate(["/"])

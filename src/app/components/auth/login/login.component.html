@@ -1,0 +1,34 @@
+<section>
+  <span>Ecommerce</span>
+
+  <form [formGroup]="form" (ngSubmit)="handleSubmit()"
+  autocomplete="off">
+    <input
+    (ngModelChange)="handleEmailChange()"
+     formControlName = "email"
+     type="email"
+     autocomplete="new-email"
+     placeholder="Enter email"
+    />
+    <p>{{invalidEmailError}}</p>
+  
+    <div class="password">
+      <input
+      [type]="isPasswordVisible?'text':'password'"
+      (ngModelChange)="handlePasswordChange()"
+      name="new-password"
+      placeholder="Your password"
+      formControlName = "password"
+      autocomplete="new-password"
+      id="password"
+    />
+    <img [src]="imagePath" alt="show/hide password" class="eye" (click)="showHidePassword()">
+    </div>
+    <p>{{invalidPasswordError}}</p>
+  
+    <button type="submit" app-button>Sign in</button>
+    <p style="text-align: center;margin-bottom: 10px;">{{signinError}}</p>
+    <span>Forgot Password?</span>
+  </form>  
+  <p>Don't have an account? <span (click)="handleNavigateRegister()">Register</span></p>
+</section>

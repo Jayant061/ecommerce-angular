@@ -15,12 +15,15 @@ export class AllProductsPageComponent {
   private productsService = inject(ProductsService);
   private destroyRef = inject(DestroyRef);
   private allProducts = signal<Product[]>([]);
+  isLoading = signal<boolean>(false);
+
   query = computed(()=>this.productsService.getQuery());
+
   getAllProducts = computed(()=>{
     return this.allProducts()
     .filter(item=>item.title.toLowerCase().includes(this.query().toLowerCase()) ||
-            item.category.toLowerCase().includes(this.query().toLowerCase()))})
-  isLoading = signal<boolean>(false);
+            item.category.toLowerCase().includes(this.query().toLowerCase()))
+        })
   ngOnInit(): void {
       this.isLoading.set(true);
       const subs = this.productsService.fetchProducts().subscribe({

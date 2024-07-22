@@ -2,6 +2,7 @@ import { Component, computed, inject, OnChanges, SimpleChanges } from '@angular/
 import { CartService } from '../cart.service';
 import { CurrencyPipe } from '@angular/common';
 import { ButtonComponent } from '../../shared/button/button.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-summary',
@@ -12,6 +13,7 @@ import { ButtonComponent } from '../../shared/button/button.component';
 })
 export class OrderSummaryComponent  {
 private cartService = inject(CartService);
+private router = inject(Router);
 
 getTotalQty = computed(()=>{
   return this.cartService.getTotalQty();
@@ -29,4 +31,8 @@ deliveryCharge = computed(()=>{
 totalPrice = computed(()=>{
   return this.cartService.getTotalPayable();
 });
+
+handleContinueShopping(){
+  this.router.navigate(["all-products"]);
+}
 }

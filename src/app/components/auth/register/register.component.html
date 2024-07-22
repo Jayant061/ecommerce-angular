@@ -1,0 +1,57 @@
+<section>
+    <span>Ecommerce</span>
+  
+    <form [formGroup]="form" (ngSubmit)="handleSubmit()"
+    autocomplete="off">
+    <input type="text" formControlName = "name" id="name" required placeholder="Your good name*"
+    autocomplete="new-name">
+    <p></p>
+      <input
+      (ngModelChange)="handleEmailChange()"
+       formControlName = "email"
+       type="email"
+       autocomplete="new-email"
+       placeholder="Enter email*"
+      />
+      <p>{{invalidEmailError}}</p>
+    
+      <div class="password">
+        <input
+        [type]="isPasswordVisible?'text':'password'"
+        (ngModelChange)="handlePasswordChange()"
+        name="new-password"
+        placeholder="Your password*"
+        formControlName = "password"
+        autocomplete="new-password"
+        id="password"
+      />
+      <img [src]="imagePath" alt="show/hide password" class="eye" (click)="showHidePassword()">
+      </div>
+      <p>{{invalidPasswordError}}</p>
+      <div class="genders">
+        <label>Gender*</label>
+        <div class="male gender">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="male" value="male" formControlName="gender">
+        </div>
+        <div class="female gender">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="female" value="female" formControlName="gender">
+        </div>
+        <div class="other gender">
+            <label for="other">Other</label>
+            <input type="radio" name="gender" id="other" value="other" formControlName="gender">
+        </div>
+      </div>
+      <p></p>
+      <input type="text" formControlName = "phone" id="phone" required placeholder="Your mobile number*"
+      autocomplete="new-phone">
+    <p></p>
+    
+      <button type="submit" app-button>Sign up</button>
+      <p style="text-align: center;margin-bottom: 10px;">{{signUpError}}</p>
+      <span>Forgot Password?</span>
+    </form>  
+    <p>Already have an account? <span (click)="handleNavigateLogin()">Login</span></p>
+  </section>
+  

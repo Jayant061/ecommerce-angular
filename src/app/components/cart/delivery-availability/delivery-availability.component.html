@@ -2,12 +2,18 @@
     <p>Delivery availability</p>
     <form class="input" (submit)="handleSubmit()" autocomplete="off">
         <img src="../../../assets/location.png" alt="" class="cart-icon">
-        <input type="text" name="pin" [(ngModel)] = "pincode" >
+        <input type="text" name="pin" [(ngModel)] = "pincode" (ngModelChange)="handleInputChange()" >
         <button>check</button>
     </form>
-    <p class="extra-info">
+    <p class="extra-info" [style]="extraInfoVisible?'visibility: visible;':'visibility: hidden;'">
+        @if(!error){
+        @if(isFreeDelivery){
         <span><img [src]="tickIcon" alt="tick"> Free Delivery</span>
+    }
         <span><img [src]="tickIcon" alt="tick">Cash on delivery</span>
         <span><img [src]="tickIcon" alt="tick">expected delivery within 5 working days</span>
+}@else {
+    {{error}}
+}
     </p>
 </div>
