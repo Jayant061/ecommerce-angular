@@ -22,8 +22,6 @@ constructor(){
     this.query();
     const time = setTimeout(()=>{
       this.productService.setQuery(this.query());
-      this.productService.setCategoryFilter('');
-      this.productService.setGenderFilter('');
       this.query().length && this.router.navigate(["all-products"])
     },700);
     onCleanup(()=>clearTimeout(time));

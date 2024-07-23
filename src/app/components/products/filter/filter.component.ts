@@ -13,10 +13,15 @@ export class FilterComponent {
   private productService = inject(ProductsService);
   gender = signal<string>("");
   category = signal<string>("");
+
   constructor(){
     effect(()=>{
       this.productService.setCategoryFilter(this.category())
       this.productService.setGenderFilter(this.gender())
     },{allowSignalWrites:true})
+  }
+  handleClearFilter(){
+    this.gender.set('');
+    this.category.set('');
   }
 }
