@@ -1,0 +1,34 @@
+<section class="filter">
+    <div class="gender wrapper">
+      <span>Gender</span>
+      <div class="input">
+          <input type="radio" name="gender" id="male" value="men" [(ngModel)]="gender" />
+          <label for="male" >Male</label>
+      </div>
+      <div class="input">
+          <input type="radio" name="gender" id="female" value="women" [(ngModel)]="gender" />
+          <label for="female">Female</label>
+      </div>
+    </div>
+    <div class="category wrapper">
+      <span>Category</span>
+      <div class="input">
+          <input
+          type="radio"
+          name="category"
+          id="electronics"
+          value="electronics"
+          [(ngModel)]="category"
+          />
+          <label for="electronics">Electronics</label>
+      </div>
+      <div class="input">
+          <input type="radio" name="category" id="jewelery" value="jewelery" [(ngModel)]="category" />
+          <label for="jewelery">Jewellery</label>
+      </div>
+      <div class="input">
+          <input type="radio" name="category" id="clothing" value="clothing" [(ngModel)]="category" />
+          <label for="clothing">Clothing</label>
+      </div>
+    </div>
+  </section>

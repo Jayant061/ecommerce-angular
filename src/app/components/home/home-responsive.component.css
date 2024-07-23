@@ -1,4 +1,4 @@
-@media screen and (max-width:600px){
+@media screen and (max-width:700px){
     section.homecard {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));

@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { DestroyRef, inject, Injectable, signal } from "@angular/core";
+import { computed, DestroyRef, effect, inject, Injectable, signal } from "@angular/core";
 import { Product } from "./product.model";
 import { baseURL } from "../../../../app.credential";
 
@@ -21,5 +21,13 @@ export class ProductsService{
     }
     setQuery(query:string){
         this.query.set(query);
+    }
+    gender = signal<string>("");
+    category = signal<string>('');
+    setGenderFilter(gender:string){
+        this.gender.set(gender);
+    }
+    setCategoryFilter(category:string){
+        this.category.set(category);
     }
 }

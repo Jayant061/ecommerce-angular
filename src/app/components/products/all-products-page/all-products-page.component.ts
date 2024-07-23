@@ -18,11 +18,12 @@ export class AllProductsPageComponent {
   isLoading = signal<boolean>(false);
 
   query = computed(()=>this.productsService.getQuery());
+  gender = computed(()=>this.productsService.gender());
+  category = computed(()=>this.productsService.category());
 
   getAllProducts = computed(()=>{
-    return this.allProducts()
-    .filter(item=>item.title.toLowerCase().includes(this.query().toLowerCase()) ||
-            item.category.toLowerCase().includes(this.query().toLowerCase()))
+    this.allProducts();
+    return filterProducts(this.allProducts(),this.query(),this.gender(),this.category())
         })
   ngOnInit(): void {
       this.isLoading.set(true);
@@ -33,4 +34,24 @@ export class AllProductsPageComponent {
       });
       this.destroyRef.onDestroy(()=>subs.unsubscribe());
   }
+}
+
+function filterProducts(arr:Product[],query:string,gender:string,category:string){
+  const filterProducts:Product[] = []
+  arr.forEach((product)=>{
+    // checking if product title or description includes the query
+    // incase of filters (gender) checking if the index of filter is 0 or previous char of filter is space
+    if(query ==='men'){
+      gender = !gender ? query : gender;
+    }
+    const isQueryAvailable:boolean = product.category.toLowerCase().includes(query.toLowerCase())||
+          product.title.toLowerCase().includes(query.toLowerCase());
+    const genderIndex:number = product.category.toLowerCase().indexOf(gender.toLowerCase());
+    const isCategoryAvailable:boolean = product.category.toLowerCase().includes(category.toLowerCase())
+
+    if(isQueryAvailable && isCategoryAvailable && (genderIndex===0 || product.category[ genderIndex-1] === ' ')){
+      filterProducts.push(product);
+    }
+  });
+  return filterProducts;
 }

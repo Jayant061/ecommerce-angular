@@ -23,7 +23,7 @@ constructor(){
     const time = setTimeout(()=>{
       this.productService.setQuery(this.query());
       this.query().length && this.router.navigate(["all-products"])
-    },1000);
+    },700);
     onCleanup(()=>clearTimeout(time));
   })
 }
