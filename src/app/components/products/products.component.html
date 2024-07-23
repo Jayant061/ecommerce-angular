@@ -1,7 +1,6 @@
 <header>
   <ng-content />
 </header>
-@if(allProducts.length){
 <section class="products">
   @if(isCorrectPathForFilterVisibility){
     <img src="../../../assets/filter.png" alt="" class="filter-visibility" (click)="handleFilterVisibility()"
@@ -10,10 +9,11 @@
       <app-filter/>
     </div>
   }
+  @if(allProducts.length){
   @for(product of allProducts; track product.id){
   <app-product [product]="product" />
   }
-</section>
 }@else{
-<p style="margin-bottom: 40px">No relevent product Found !</p>
+<p style="margin-bottom: 40px; width:100%; text-align: center;">No relevent product Found !</p>
 }
+</section>
