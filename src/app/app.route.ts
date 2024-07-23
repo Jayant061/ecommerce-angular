@@ -1,12 +1,5 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./components/home/home.component";
-import { ProductsComponent } from "./components/products/products.component";
-import { ProductDescriptionComponent } from "./components/products/product-description/product-description.component";
-import { AllProductsPageComponent } from "./components/products/all-products-page/all-products-page.component";
-import { CartComponent } from "./components/cart/cart.component";
-import { LoginComponent } from "./components/auth/login/login.component";
-import { RegisterComponent } from "./components/auth/register/register.component";
-import { UserComponent } from "./components/auth/user/user.component";
 import { AuthGuard } from "./components/shared/auth/auth.guard";
 
 export const routes:Routes = [
@@ -16,24 +9,34 @@ export const routes:Routes = [
     }
     ,{
         path:"all-products",
-        component:AllProductsPageComponent
+        // component:AllProductsPageComponent
+        loadComponent:()=>import("./components/products/all-products-page/all-products-page.component").then((mod)=>mod.AllProductsPageComponent)
     },{
         path:"products/:productId",
-        component:ProductDescriptionComponent
+        // component:ProductDescriptionComponent
+        loadComponent:()=>import("./components/products/product-description/product-description.component")
+        .then((mod)=>mod.ProductDescriptionComponent)
     },
     {
         path:"viewcart",
-        component:CartComponent
+        // component:CartComponent
+        loadComponent:()=>import("./components/cart/cart.component").then((mod)=>mod.CartComponent)
     },{
-        path:"auth/login",
-        component:LoginComponent
-    },{
-        path:"auth/register",
-        component:RegisterComponent
-    },
-    {
-        path:"auth/user",
-        component:UserComponent,
-        canActivate:[AuthGuard]
+        path:"auth",
+        loadComponent:()=>import("./components/auth/auth.component").then((module)=>module.AuthComponent),
+        children:[
+            {
+                path:"login",
+                loadComponent:()=>import("./components/auth/login/login.component").then((mod)=>mod.LoginComponent)
+            },{
+                path:"auth/register",
+                loadComponent:()=>import("./components/auth/register/register.component").then((mod)=>mod.RegisterComponent)
+            },
+            {
+                path:"user",
+                loadComponent:()=>import("./components/auth/user/user.component").then((mod)=>mod.UserComponent),
+                canActivate:[AuthGuard]
+            }
+        ]
     }
 ]
