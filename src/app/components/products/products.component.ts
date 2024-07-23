@@ -16,4 +16,8 @@ import { FilterComponent } from "./filter/filter.component";
 export class ProductsComponent {
   @Input({required:true}) allProducts:Product[] = [];
   isCorrectPathForFilterVisibility = window.location.pathname.includes('all-products');
+  isFilterVisible:boolean = false;
+  handleFilterVisibility(){
+    this.isFilterVisible = !this.isFilterVisible;
+  }
 }

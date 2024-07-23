@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, effect, HostBinding, inject, Input, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductsService } from '../product.service';
 
@@ -7,13 +7,12 @@ import { ProductsService } from '../product.service';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './filter.component.html',
-  styleUrl: './filter.component.css'
+  styleUrl: './filter.component.css',
 })
 export class FilterComponent {
   private productService = inject(ProductsService);
   gender = signal<string>("");
   category = signal<string>("");
-
   constructor(){
     effect(()=>{
       this.productService.setCategoryFilter(this.category())

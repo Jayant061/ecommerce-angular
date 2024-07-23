@@ -4,7 +4,11 @@
 @if(allProducts.length){
 <section class="products">
   @if(isCorrectPathForFilterVisibility){
-    <app-filter/>
+    <img src="../../../assets/filter.png" alt="" class="filter-visibility" (click)="handleFilterVisibility()"
+    [style]="isFilterVisible?'transform: rotate(180deg);':'transform: rotate(0deg);'">
+    <div class="filter" [style]="isFilterVisible ? 'display:block;':'display:none;'">
+      <app-filter/>
+    </div>
   }
   @for(product of allProducts; track product.id){
   <app-product [product]="product" />

@@ -10,7 +10,46 @@
     display: flex;
     flex-wrap: wrap;
     background-color: var(--bgc);
-    padding-top: 20px;
+    padding-top: 0.5rem;
     border-radius: 8px 8px 0 0;
+    transition: width 0.3s ease;
+    position: relative;
+    div.filter{
+      width:22.5%;
+      background-color: var(--appBgc);
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding: 20px 10px;
+      border-radius: 8px;
+      border: 1px solid white;
+    }
+    img.filter-visibility{
+      width: 2rem;
+      position: absolute;
+      top: -2rem;
+      cursor: pointer;
+      left: 5%;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+  }
+}
+
+@media screen and (max-width: 820px) {
+:host{
+  section.products{
+    div.filter{
+      width:32%;
+    }
+  }
+}
+}
+@media screen and (max-width: 480px) {
+  :host{
+    section.products{
+      div.filter{
+        width:49%;
+      }
+    }
   }
 }
