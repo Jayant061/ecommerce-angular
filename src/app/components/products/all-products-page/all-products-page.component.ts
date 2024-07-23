@@ -41,7 +41,7 @@ function filterProducts(arr:Product[],query:string,gender:string,category:string
   arr.forEach((product)=>{
     // checking if product title or description includes the query
     // incase of filters (gender) checking if the index of filter is 0 or previous char of filter is space
-    if(query ==='men'){
+    if(query.toLocaleLowerCase() ==='men'){
       gender = !gender ? query : gender;
     }
     const isQueryAvailable:boolean = product.category.toLowerCase().includes(query.toLowerCase())||
