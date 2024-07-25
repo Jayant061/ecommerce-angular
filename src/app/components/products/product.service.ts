@@ -22,12 +22,8 @@ export class ProductsService{
     setQuery(query:string){
         this.query.set(query);
     }
-    gender = signal<string>("");
-    category = signal<string>('');
-    setGenderFilter(gender:string){
-        this.gender.set(gender);
-    }
-    setCategoryFilter(category:string){
-        this.category.set(category);
+    filter = signal<{gender:string,category:string}>({gender:"",category:""});
+    setFilter(gender:string = "",category:string = ""){
+        this.filter.set({gender,category});
     }
 }

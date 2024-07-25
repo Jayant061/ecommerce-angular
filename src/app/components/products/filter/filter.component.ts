@@ -1,27 +1,29 @@
-import { Component, effect, HostBinding, inject, Input, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, inject} from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ProductsService } from '../product.service';
 
 @Component({
   selector: 'app-filter',
   standalone: true,
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.css',
 })
 export class FilterComponent {
   private productService = inject(ProductsService);
-  gender = signal<string>("");
-  category = signal<string>("");
+
+  form = new FormGroup({
+    gender: new FormControl<string>(" "),
+    category:new FormControl<string>(" ")
+  })
 
   constructor(){
-    effect(()=>{
-      this.productService.setCategoryFilter(this.category())
-      this.productService.setGenderFilter(this.gender())
-    },{allowSignalWrites:true})
+    this.form.valueChanges.subscribe({next:(val)=>{
+        this.productService.setFilter(val.gender?val.gender:"",val.category?val.category:"")
+    }})
+
   }
   handleClearFilter(){
-    this.gender.set('');
-    this.category.set('');
+    this.form.reset();
   }
 }

@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { AuthService, User } from '../auth.service';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { Router } from '@angular/router';
+import { LoadingSpinnerComponent } from "../../shared/loading-spinner/loading-spinner.component";
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, LoadingSpinnerComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })

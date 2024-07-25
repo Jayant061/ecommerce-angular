@@ -1,12 +1,12 @@
-<section class="filter">
+<section class="filter" [formGroup]="form">
     <div class="gender wrapper">
       <span>Gender</span>
       <div class="input">
-          <input type="radio" name="gender" id="male" value="men" [(ngModel)]="gender" />
+          <input type="radio" name="gender" id="male" value="men" formControlName="gender" />
           <label for="male" >Male</label>
       </div>
       <div class="input">
-          <input type="radio" name="gender" id="female" value="women" [(ngModel)]="gender" />
+          <input type="radio" name="gender" id="female" value="women" formControlName="gender" />
           <label for="female">Female</label>
       </div>
     </div>
@@ -18,16 +18,16 @@
           name="category"
           id="electronics"
           value="electronics"
-          [(ngModel)]="category"
+          formControlName="category"
           />
           <label for="electronics">Electronics</label>
       </div>
       <div class="input">
-          <input type="radio" name="category" id="jewelery" value="jewelery" [(ngModel)]="category" />
+          <input type="radio" name="category" id="jewelery" value="jewelery" formControlName="category" />
           <label for="jewelery">Jewellery</label>
       </div>
       <div class="input">
-          <input type="radio" name="category" id="clothing" value="clothing" [(ngModel)]="category" />
+          <input type="radio" name="category" id="clothing" value="clothing" formControlName="category" />
           <label for="clothing">Clothing</label>
       </div>
     </div>

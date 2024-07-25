@@ -29,7 +29,7 @@ export const routes:Routes = [
                 path:"login",
                 loadComponent:()=>import("./components/auth/login/login.component").then((mod)=>mod.LoginComponent)
             },{
-                path:"auth/register",
+                path:"register",
                 loadComponent:()=>import("./components/auth/register/register.component").then((mod)=>mod.RegisterComponent)
             },
             {

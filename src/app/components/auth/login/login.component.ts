@@ -3,11 +3,12 @@ import { ButtonComponent } from '../../shared/button/button.component';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, signinData } from '../auth.service';
+import { LoadingSpinnerComponent } from "../../shared/loading-spinner/loading-spinner.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ButtonComponent,FormsModule, ReactiveFormsModule],
+  imports: [ButtonComponent, FormsModule, ReactiveFormsModule, LoadingSpinnerComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -24,7 +25,6 @@ export class LoginComponent {
     this.signinError = "";
     const user:signinData = this.form.value as signinData
     const res = this.authService.signin(user);
-    console.log(res);
     if(res === 401){
       this.signinError = "Incorrect email or password"
     }else if(res === 404){
@@ -70,6 +70,4 @@ export class LoginComponent {
   handleNavigateRegister(){
     this.router.navigate(['auth/register'])
   }
-
-
 }

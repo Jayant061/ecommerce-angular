@@ -18,8 +18,8 @@ export class AllProductsPageComponent {
   isLoading = signal<boolean>(false);
 
   query = computed(()=>this.productsService.getQuery());
-  gender = computed(()=>this.productsService.gender());
-  category = computed(()=>this.productsService.category());
+  gender = computed(()=>this.productsService.filter().gender);
+  category = computed(()=>this.productsService.filter().category);
 
   getAllProducts = computed(()=>{
     this.allProducts();

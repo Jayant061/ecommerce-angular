@@ -3,11 +3,12 @@ import { ButtonComponent } from '../../shared/button/button.component';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, User } from '../auth.service';
+import { LoadingSpinnerComponent } from "../../shared/loading-spinner/loading-spinner.component";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ButtonComponent,FormsModule, ReactiveFormsModule],
+  imports: [ButtonComponent, FormsModule, ReactiveFormsModule, LoadingSpinnerComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -19,7 +20,7 @@ export class RegisterComponent {
     name:new FormControl('',{validators:[Validators.required]}),
     email: new FormControl(" ",{validators:[Validators.email,Validators.required]}),
     password: new FormControl('',{validators:[Validators.minLength(6),Validators.required]}),
-    phone: new FormControl('',{validators:[Validators.required]}),
+    phone: new FormControl('',{validators:[Validators.required,Validators.minLength(10),Validators.maxLength(10)]}),
     gender: new FormControl<"male"| "female"|'other'|''>('',{validators:[Validators.required]})
   },{validators:[]});
   signUpError = "";
@@ -38,28 +39,6 @@ export class RegisterComponent {
     }
     else{
       console.log("Something went wrong");
-    }
-  }
-
-  invalidEmailError = "";
-  handleEmailChange(){
-      const {dirty,invalid} = this.form.controls.email;
-      if(dirty && invalid){
-        this.invalidEmailError = "Please enter a valid email"
-      }
-      else{
-        this.invalidEmailError = "";
-      }
-  }
-
-  invalidPasswordError = "";
-  handlePasswordChange(){
-    const {dirty,invalid} = this.form.controls.password;
-    if(dirty && invalid){
-      this.invalidPasswordError = "Password must be alteast 6 digits long"
-    }
-    else{
-      this.invalidPasswordError = "";
     }
   }
   imagePath = "../../../../assets/eye.png"
