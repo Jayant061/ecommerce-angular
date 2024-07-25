@@ -38,7 +38,7 @@ export class RegisterComponent {
       
     }
     else{
-      console.log("Something went wrong");
+      this.signUpError = "Something went wrong";
     }
   }
   imagePath = "../../../../assets/eye.png"
